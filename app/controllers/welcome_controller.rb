@@ -8,6 +8,7 @@ class WelcomeController < ApplicationController
     uri = URI('https://swapi.co/api/films/')
     req = Net::HTTP::get(uri)
     @films = JSON.parse(req)['results']
+    puts @films
   end
 
 end
