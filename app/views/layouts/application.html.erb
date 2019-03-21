@@ -4,13 +4,19 @@
     <title>Swapihw</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <input></input> <button>search</button>
+    <input></input> <button>search</button><br/>
+    <div class="topnav">
+      <a class="active" href="/">Home</a>
+      <a href="films">Films</a>
+      <a href="people">People</a>
+      <a href="planets">Planets</a>
+      <a href="spaceships">Scpaceships</a>
+    </div>
     <%= yield %>
   </body>
 </html>
