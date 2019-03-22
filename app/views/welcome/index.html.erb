@@ -1,7 +1,7 @@
 <h2></h2>
 <p>
-  <table>
-    <tr><th>Episodio</th><th>Titulo</th><th>Año estreno</th><th>Director</th><th>Productor</th></tr>
+  <table class='table'>
+    <tr><th>Episodio</th><th>Titulo</th><th>Año estreno</th><th>Director</th><th>Productor</th><th></th></tr>
     <% @films.each do |film| %>
       <tr>
         <td>
@@ -19,6 +19,10 @@
         <td>
           <%= film['producer'] %>
         </td>
+        <td>
+          <button onclick="clicked()">Click me</button>
+        </td>
+
       </tr>
     <% end %>
 

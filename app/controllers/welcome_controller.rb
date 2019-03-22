@@ -9,7 +9,7 @@ class WelcomeController < ApplicationController
     req = Net::HTTP::get(uri)
     @films = JSON.parse(req)['results']
     @films.each do |film|
-      film['uri'] = URI(film['url']).path.sub('/api/', '')
+      film['uri'] = URI(film['url']).path.sub('/api', '')
     end
     puts @films
   end
