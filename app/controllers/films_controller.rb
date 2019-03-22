@@ -4,11 +4,9 @@ class FilmsController < ApplicationController
     @film = get_specific('https://swapi.co/api/films/' + params['id'] + '/')
     planets = Array.new()
     @film['planets'].each do |url|
-      uri = URI(url)
-      req = Net::HTTP::get(uri)
-      planet = JSON.parse(req)
+      planet = get_specific(url)
       planet = {
-              'uri': uri.path.sub('/api', ''),
+              'uri': URI(url).path.sub('/api', ''),
               'name': planet['name']
               }
       planets.push(planet)
