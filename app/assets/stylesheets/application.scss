@@ -14,8 +14,13 @@
  *= require_self
  */
  @import "bootstrap";
- 
+
  table, th, td {
    border: 1px solid black;
    border-collapse: collapse;
  }
+
+ /*body {
+   background-image: url('swimg.png');
+   background-position: cover;
+ }*/
