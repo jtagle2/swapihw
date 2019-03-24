@@ -19,6 +19,30 @@
 </p>
 
 <p>
-  <strong>Gravedad:</strong>
+  <strong>Terreno:</strong>
   <%= @planet['terrain'] %>
+</p>
+
+<p>
+  <strong>Gravedad:</strong>
+  <%= @planet['gravity'] %>
+</p>
+
+<p>
+  <strong>Habitantes:</strong>
+  <%= @planet['population'] %>
+</p>
+
+<p>
+  <strong>Residentes:</strong>
+  <% @planet['residents'].each do |resident| %>
+    <br/>
+    <a href="<%= resident["uri"] %>"><%= resident["name"] %></a>
+  <% end %>
+</p>
+
+
+<p>
+  <strong>Aparece en:</strong>
+  <%= @planet['films'] %>
 </p>

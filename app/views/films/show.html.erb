@@ -22,9 +22,10 @@
   <strong>Planetas:</strong>
   <% @film['planets'].each do |planet| %>
     <br/>
-    <a href="<%= planet[:uri] %>"><%= planet[:name] %></a>
+    <a href="<%= planet["uri"] %>"><%= planet["name"] %></a>
   <% end %>
 </p>
+
 <p>
   <strong>Inicio:</strong>
   <%= @film['opening_crawl'] %>

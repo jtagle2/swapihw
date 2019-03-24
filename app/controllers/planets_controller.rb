@@ -7,6 +7,8 @@ class PlanetsController < ApplicationController
 
   def show
     @planet = get_specific('https://swapi.co/api/planets/' + params['id'] + '/')
+    aux = Array.new()
+    @planet['residents'] = get_urls(@planet['residents'])
   end
 
 end
