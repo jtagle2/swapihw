@@ -1,0 +1,80 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @starship['name'] %>
+</p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @starship['model'] %>
+</p>
+
+<p>
+  <strong>Tipo nave:</strong>
+  <%= @starship['starship_class'] %>
+</p>
+
+<p>
+  <strong>Construido por:</strong>
+  <%= @starship['manufacturer'] %>
+</p>
+
+<p>
+  <strong>Precio:</strong>
+  <%= @starship['cost_in_credits'] %>
+</p>
+
+<p>
+  <strong>Largo:</strong>
+  <%= @starship['length'] %> m
+</p>
+
+<p>
+  <strong>Tripulación necesaria:</strong>
+  <%= @starship['crew'] %> personas
+</p>
+
+<p>
+  <strong>Capacidad personas:</strong>
+  <%= @starship['passengers'] %> personas
+</p>
+
+<p>
+  <strong>Velocidad máxima en atmósfera:</strong>
+  <%= @starship['max_atmosphering_speed'] %>
+</p>
+
+<p>
+  <strong>Hyperdrive:</strong>
+  <%= @starship['hyperdrive_rating'] %>
+</p>
+
+<p>
+  <strong>Megalights por hora:</strong>
+  <%= @starship['MGLT'] %>
+</p>
+
+<p>
+  <strong>Capacidad peso:</strong>
+  <%= @starship['cargo_capacity'] %> kg
+</p>
+
+<p>
+  <strong>Abastecida para:</strong>
+  <%= @starship['consumables'] %>
+</p>
+
+<p>
+  <strong>Piloteada por:</strong>
+  <% @starship['pilots'].each do |pilot| %>
+    <br/>
+    <a href="<%= pilot["uri"] %>"><%= pilot["name"] %></a>
+  <% end %>
+</p>
+
+<p>
+  <strong>Aparece en:</strong>
+  <% @starship['films'].each do |film| %>
+    <br/>
+    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+  <% end %>
+</p>

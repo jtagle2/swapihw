@@ -27,6 +27,19 @@
 </p>
 
 <p>
+  <strong>Personajes:</strong>
+  <% @film['characters'].each do |character| %>
+    <br/>
+    <a href="<%= character["uri"] %>"><%= character["name"] %></a>
+  <% end %>
+</p>
+
+<p>
+  <strong>Fecha estreno:</strong>
+  <%= @film['release_date'] %>
+</p>
+
+<p>
   <strong>Inicio:</strong>
   <%= @film['opening_crawl'] %>
 </p>

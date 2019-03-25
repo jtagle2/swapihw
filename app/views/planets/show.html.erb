@@ -29,8 +29,13 @@
 </p>
 
 <p>
-  <strong>Habitantes:</strong>
+  <strong># Habitantes:</strong>
   <%= @planet['population'] %>
+</p>
+
+<p>
+  <strong>Porcentaje agua:</strong>
+  <%= @planet['surface_water'] %>
 </p>
 
 <p>
@@ -41,8 +46,10 @@
   <% end %>
 </p>
 
-
 <p>
   <strong>Aparece en:</strong>
-  <%= @planet['films'] %>
+  <% @planet['films'].each do |film| %>
+    <br/>
+    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+  <% end %>
 </p>

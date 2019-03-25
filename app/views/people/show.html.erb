@@ -1,0 +1,55 @@
+<p>
+  <strong>Nombre:</strong>
+  <%= @character['name'] %>
+</p>
+
+<p>
+  <strong>Fecha nacimiento:</strong>
+  <%= @character['birth_year'] %>
+</p>
+
+<p>
+  <strong>Color ojos:</strong>
+  <%= @character['eye_color'] %>
+</p>
+
+<p>
+  <strong>Color pelo:</strong>
+  <%= @character['hair_color'] %>
+</p>
+
+<p>
+  <strong>Color piel:</strong>
+  <%= @character['skin_color'] %>
+</p>
+
+<p>
+  <strong>Género:</strong>
+  <%= @character['gender'] %>
+</p>
+
+<p>
+  <strong>Peso:</strong>
+  <%= @character['mass'] %> Kg
+</p>
+
+<p>
+  <strong>Planeta natal:</strong>
+  <a href="<%= @character["homeworld"]["uri"] %>"><%= @character["homeworld"]["name"] %></a>
+</p>
+
+<p>
+  <strong>Ha piloteado:</strong>
+  <% @character['starships'].each do |starship| %>
+    <br/>
+    <a href="<%= starship["uri"] %>"><%= starship["name"] %></a>
+  <% end %>
+</p>
+
+<p>
+  <strong>Aparece en:</strong>
+  <% @character['films'].each do |film| %>
+    <br/>
+    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+  <% end %>
+</p>
