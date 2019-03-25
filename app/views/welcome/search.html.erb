@@ -1,0 +1,49 @@
+<p>
+  <table class='table table-striped'>
+    <tr><th>Tipo</th><th>Nombre</th></tr>
+    <% @films.each do |film| %>
+      <tr>
+        <td>
+          Película
+        </td>
+        <td>
+          <a href="<%= film['uri'] %>"><%= film['title'] %></a>
+        </td>
+      </tr>
+    <% end %>
+
+    <% @people.each do |character| %>
+      <tr>
+        <td>
+          Personaje
+        </td>
+        <td>
+          <a href="<%= character['uri'] %>"><%= character['name'] %></a>
+        </td>
+      </tr>
+    <% end %>
+
+    <% @planets.each do |planet| %>
+      <tr>
+        <td>
+          Planeta
+        </td>
+        <td>
+          <a href="<%= planet['uri'] %>"><%= planet['name'] %></a>
+        </td>
+      </tr>
+    <% end %>
+
+    <% @starships.each do |starship| %>
+      <tr>
+        <td>
+          Nave
+        </td>
+        <td>
+          <a href="<%= starship['uri'] %>"><%= starship['name'] %></a>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+</p>

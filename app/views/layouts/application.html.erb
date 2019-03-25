@@ -11,14 +11,15 @@
   </head>
 
   <body>
-    <input></input> <button>search</button><br/>
-    <div class="topnav">
-      <a class="active" href="/">Home</a>
-      <a href="/films">Films</a>
-      <a href="/people">People</a>
-      <a href="/planets">Planets</a>
-      <a href="/spaceships">Scpaceships</a>
+    <nav class="navbar">
+      <a href="/">Home</a>
+    </nav>
+    <%= form_tag "/search", :method => 'get' do %>
+      <p>
+        <%= text_field_tag "name", params[:name] %>
+        <%= submit_tag "buscar" %>
+      </p>
+    <% end %>
       <%= yield %>
-    </div>
   </body>
 </html>
