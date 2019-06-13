@@ -40,7 +40,8 @@
 
 <p>
   <strong>Planeta natal:</strong>
-  <a href="<%= @character["homeworld"]["uri"] %>"><%= @character["homeworld"]["name"] %></a>
+  <a href="<%= "/planets/%s" % [@character["homeworld"]["id"]] %>"><%=  @character["homeworld"]["name"] %></a>
+
 </p>
 
 <p>
