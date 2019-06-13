@@ -11,15 +11,6 @@
   </head>
 
   <body>
-    <nav class="navbar">
-      <a href="/">Home</a>
-    </nav>
-    <%= form_tag "/search", :method => 'get' do %>
-      <p>
-        <%= text_field_tag "name", params[:name] %>
-        <%= submit_tag "buscar" %>
-      </p>
-    <% end %>
       <%= yield %>
   </body>
 </html>

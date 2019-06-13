@@ -4,19 +4,19 @@
     <% @films.each do |film| %>
       <tr>
         <td>
-          <%= film['episode_id'] %>
+          <%= film['episodeID'] %>
         </td>
         <td>
-          <a href="<%= film['uri'] %>"><%= film['title'] %></a>
+          <a href="<%= "/films/%s" % [film['id']] %>"><%= film['title'] %></a>
         </td>
         <td>
-          <%= film['release_date'] %>
+          <%= film['releaseDate'] %>
         </td>
         <td>
           <%= film['director'] %>
         </td>
         <td>
-          <%= film['producer'] %>
+          <%= film['producers'].join(', ') %>
         </td>
 
       </tr>

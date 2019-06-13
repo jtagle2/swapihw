@@ -10,17 +10,17 @@
 
 <p>
   <strong>Tipo nave:</strong>
-  <%= @starship['starship_class'] %>
+  <%= @starship['starshipClass'] %>
 </p>
 
 <p>
   <strong>Construido por:</strong>
-  <%= @starship['manufacturer'] %>
+  <%= @starship['manufacturers'] %>
 </p>
 
 <p>
   <strong>Precio:</strong>
-  <%= @starship['cost_in_credits'] %>
+  <%= @starship['costInCredits'] %>
 </p>
 
 <p>
@@ -40,12 +40,12 @@
 
 <p>
   <strong>Velocidad máxima en atmósfera:</strong>
-  <%= @starship['max_atmosphering_speed'] %>
+  <%= @starship['maxAtmospheringSpeed'] %>
 </p>
 
 <p>
   <strong>Hyperdrive:</strong>
-  <%= @starship['hyperdrive_rating'] %>
+  <%= @starship['hyperdriveRating'] %>
 </p>
 
 <p>
@@ -55,7 +55,7 @@
 
 <p>
   <strong>Capacidad peso:</strong>
-  <%= @starship['cargo_capacity'] %> kg
+  <%= @starship['cargoCapacity'] %> kg
 </p>
 
 <p>
@@ -67,7 +67,7 @@
   <strong>Piloteada por:</strong>
   <% @starship['pilots'].each do |pilot| %>
     <br/>
-    <a href="<%= pilot["uri"] %>"><%= pilot["name"] %></a>
+      <a href="<%= "/people/%s" % [pilot['id']] %>"><%= pilot["name"] %></a>
   <% end %>
 </p>
 
@@ -75,6 +75,6 @@
   <strong>Aparece en:</strong>
   <% @starship['films'].each do |film| %>
     <br/>
-    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+      <a href="<%= "/films/%s" % [film['id']] %>"><%= film["title"] %></a>
   <% end %>
 </p>

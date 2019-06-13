@@ -5,22 +5,22 @@
 
 <p>
   <strong>Periodo rotación:</strong>
-  <%= @planet['rotation_period'] %>
+  <%= @planet['rotationPeriod'] %>
 </p>
 
 <p>
   <strong>Periodo orbital:</strong>
-  <%= @planet['orbital_period'] %>
+  <%= @planet['orbitalPeriod'] %>
 </p>
 
 <p>
   <strong>Clima:</strong>
-  <%= @planet['climate'] %>
+  <%= @planet['climates'] %>
 </p>
 
 <p>
   <strong>Terreno:</strong>
-  <%= @planet['terrain'] %>
+  <%= @planet['terrains'] %>
 </p>
 
 <p>
@@ -35,14 +35,14 @@
 
 <p>
   <strong>Porcentaje agua:</strong>
-  <%= @planet['surface_water'] %>
+  <%= @planet['surfaceWater'] %>
 </p>
 
 <p>
   <strong>Residentes:</strong>
   <% @planet['residents'].each do |resident| %>
     <br/>
-    <a href="<%= resident["uri"] %>"><%= resident["name"] %></a>
+      <a href="<%= "/people/%s" % [resident['id']] %>"><%= resident["name"] %></a>
   <% end %>
 </p>
 
@@ -50,6 +50,6 @@
   <strong>Aparece en:</strong>
   <% @planet['films'].each do |film| %>
     <br/>
-    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+      <a href="<%= "/films/%s" % [film['id']] %>"><%= film["title"] %></a>
   <% end %>
 </p>

@@ -5,7 +5,7 @@
 
 <p>
   <strong>Episodio:</strong>
-  <%= @film['episode_id'] %>
+  <%= @film['episodeID'] %>
 </p>
 
 <p>
@@ -15,14 +15,14 @@
 
 <p>
   <strong>Producer:</strong>
-  <%= @film['producer'] %>
+  <%= @film['producers'].join(', ') %>
 </p>
 
 <p>
   <strong>Planetas:</strong>
   <% @film['planets'].each do |planet| %>
     <br/>
-    <a href="<%= planet["uri"] %>"><%= planet["name"] %></a>
+    <a href="<%= "/planets/%s" % [planet['id']] %>"><%= planet["name"] %></a>
   <% end %>
 </p>
 
@@ -30,16 +30,25 @@
   <strong>Personajes:</strong>
   <% @film['characters'].each do |character| %>
     <br/>
-    <a href="<%= character["uri"] %>"><%= character["name"] %></a>
+      <a href="<%= "/people/%s" % [character['id']] %>"><%= character["name"] %></a>
   <% end %>
 </p>
 
 <p>
+  <strong>Naves:</strong>
+  <% @film['starships'].each do |starship| %>
+    <br/>
+      <a href="<%= "/starships/%s" % [starship['id']] %>"><%= starship["name"] %></a>
+  <% end %>
+</p>
+
+
+<p>
   <strong>Fecha estreno:</strong>
-  <%= @film['release_date'] %>
+  <%= @film['releaseDate'] %>
 </p>
 
 <p>
   <strong>Inicio:</strong>
-  <%= @film['opening_crawl'] %>
+  <%= @film['openingCrawl'] %>
 </p>

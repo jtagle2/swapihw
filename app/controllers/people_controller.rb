@@ -1,10 +1,12 @@
 class PeopleController < ApplicationController
 
   def show
-    @character = get_specific('https://swapi.co/api/people/' + params['id'] + '/')
-    @character['starships'] = get_urls(@character['starships'])
-    @character['films'] = get_urls(@character['films'])
-    @character['homeworld'] = get_specific(@character['homeworld'])
+  	body = Hash.new
+	body['query'] = 'query{person(id: "%s"){species{name},filmConnection{edges{node{title, id}}},starshipConnection{edges{node{name, id}}},name,id,birthYear,eyeColor,gender,hairColor,height,mass,skinColor,homeworld{name, id}}}
+' % [params['id']]
+	@character = post_request(body)['person']
+	@character['starships'] = @character['starshipConnection']['edges'].collect{|edge| edge['node']}
+	@character['films'] = @character['filmConnection']['edges'].collect{|edge| edge['node']}
   end
 
 end

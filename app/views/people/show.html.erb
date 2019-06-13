@@ -5,22 +5,27 @@
 
 <p>
   <strong>Fecha nacimiento:</strong>
-  <%= @character['birth_year'] %>
+  <%= @character['birthYear'] %>
 </p>
 
 <p>
   <strong>Color ojos:</strong>
-  <%= @character['eye_color'] %>
+  <%= @character['eyeColor'] %>
 </p>
 
 <p>
   <strong>Color pelo:</strong>
-  <%= @character['hair_color'] %>
+  <%= @character['hairColor'] %>
+</p>
+
+<p>
+  <strong>Especie:</strong>
+  <%= @character['species']['name'] %>
 </p>
 
 <p>
   <strong>Color piel:</strong>
-  <%= @character['skin_color'] %>
+  <%= @character['skinColor'] %>
 </p>
 
 <p>
@@ -42,7 +47,7 @@
   <strong>Ha piloteado:</strong>
   <% @character['starships'].each do |starship| %>
     <br/>
-    <a href="<%= starship["uri"] %>"><%= starship["name"] %></a>
+    <a href="<%= "/starships/%s" % [starship['id']] %>"><%= starship["name"] %></a>
   <% end %>
 </p>
 
@@ -50,6 +55,6 @@
   <strong>Aparece en:</strong>
   <% @character['films'].each do |film| %>
     <br/>
-    <a href="<%= film["uri"] %>"><%= film["title"] %></a>
+    <a href="<%= "/films/%s" % [film['id']] %>"><%= film["title"] %></a>
   <% end %>
 </p>

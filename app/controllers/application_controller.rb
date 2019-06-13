@@ -4,34 +4,18 @@ require 'json'
 
 class ApplicationController < ActionController::Base
 
-  def get_specific(url)
+  BaseURL = "https://swapi-graphql-integracion-t3.herokuapp.com/"
+
+  def post_request(body, url=BaseURL)
     uri = URI(url)
-    req = Net::HTTP::get(uri)
-    ret = JSON.parse(req)
-    ret["uri"] = URI(ret["url"]).path.sub("/api", "")
-    return ret
+    req = Net::HTTP::Post.new(uri)
+    req['content-type'] = 'application/json'
+    http = Net::HTTP.new(uri.host, uri.port)
+    http.use_ssl = (uri.scheme == 'https')
+    req.body = body.to_json
+    response = http.request(req)
+    response = JSON.parse(response.body)
+    return response['data']
   end
-
-  def get_all(url)
-    ret = Array.new()
-    req = {"next" => url}
-    while !req["next"].nil?
-      uri = URI(req["next"])
-      req = JSON.parse(Net::HTTP::get(uri))
-      ret += req['results']
-    end
-    ret.each do |element|
-      element["uri"] = URI(element["url"]).path.sub("/api", "")
-    end
-    return ret
-  end
-
-  def get_urls(urls)
-    aux = Array.new()
-    urls.each do |url|
-      aux.push(get_specific(url))
-    end
-    return aux
-  end
-
+  
 end
